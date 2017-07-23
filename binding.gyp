@@ -317,10 +317,10 @@
                     {
                       'action_name': 'restore_bootstrap_packages',
                       'inputs': [
-                        'lib/bootstrap/project.json'
+                        'lib/bootstrap/bootstrap.csproj'
                       ],
                       'outputs': [
-                        'lib/bootstrap/project.lock.json'
+                        'lib/bootstrap/project.assets.json'
                       ],
                       'action': [
                         'bash',
