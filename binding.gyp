@@ -207,11 +207,13 @@
                     'src/common/edge.cpp'
                   ],
                   'include_dirs': [
-                    '<!@(pkg-config mono-2 --cflags-only-I | sed s/-I//g)'
+                    '<!@(pkg-config mono-2 --cflags-only-I | sed s/-I//g)',
+                    '<!@(pkg-config glib-2.0 --cflags-only-I | sed s/-I//g)'
                   ],
                   'link_settings': {
                     'libraries': [
-                      '<!@(pkg-config mono-2 --libs)'
+                      '<!@(pkg-config mono-2 --libs)',
+                      '<!@(pkg-config glib-2.0 --libs)'
                     ],
                   }
                 },
@@ -297,7 +299,7 @@
                         'build/$(BUILDTYPE)/monoembedding.exe'
                       ],
                       'action': [
-                        'dmcs',
+                        'mcs',
                         '-sdk:4.5',
                         '-target:exe',
                         '-out:build/$(BUILDTYPE)/MonoEmbedding.exe',
