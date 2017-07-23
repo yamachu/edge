@@ -34,9 +34,11 @@ v8::Local<v8::Function> ClrFunc::Initialize(MonoObject* func)
 {
     DBG("ClrFunc::Initialize Func<object,Task<object>> wrapper");
 
+    #pragma managed(push, off)
     static Nan::Persistent<v8::Function> proxyFactory;
-    static Nan::Persistent<v8::Function> proxyFunction;    
-
+    static Nan::Persistent<v8::Function> proxyFunction;
+    #pragma managed(push, pop)
+ 
     Nan::EscapableHandleScope scope;
 
     ClrFunc* app = new ClrFunc();
