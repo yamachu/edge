@@ -179,9 +179,9 @@ public class CoreCLREmbedding
 
     private class EdgeAssemblyResolver
     {
-        internal readonly Dictionary<string, string> CompileAssemblies = new Dictionary<string, string>();
-        private readonly Dictionary<string, string> _libraries = new Dictionary<string, string>();
-        private readonly Dictionary<string, string> _nativeLibraries = new Dictionary<string, string>();
+        internal readonly Dictionary<string, string> CompileAssemblies = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        private readonly Dictionary<string, string> _libraries = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        private readonly Dictionary<string, string> _nativeLibraries = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         private readonly string _packagesPath;
 
         public EdgeAssemblyResolver()
