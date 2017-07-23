@@ -29,7 +29,7 @@
     }
   ],
   "dependencies": {
-    "edge-cs": "1.2.1",
+    "edge-cs": "git+https://github.com/yamachu/edge-cs#feature/support_new_version",
     "nan": "^2.0.9"
   },
   "devDependencies": {
