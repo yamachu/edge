@@ -62,12 +62,14 @@ NodejsFuncInvokeContext::!NodejsFuncInvokeContext()
     }
 }
 
+#pragma managed(push, off)
+static Nan::Persistent<v8::Function> callbackFactory;
+static Nan::Persistent<v8::Function> callbackFunction;
+#pragma managed(push, on)
+
 void NodejsFuncInvokeContext::CallFuncOnV8Thread()
 {
     DBG("NodejsFuncInvokeContext::CallFuncOnV8Thread");
-
-    static Nan::Persistent<v8::Function> callbackFactory;
-    static Nan::Persistent<v8::Function> callbackFunction;
 
     Nan::HandleScope scope;
     try

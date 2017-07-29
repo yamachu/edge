@@ -26,12 +26,14 @@ void clrFuncProxyNearDeath(const Nan::WeakCallbackInfo<T> &data)
     delete wrap;
 }
 
+#pragma managed(push, off)
+static Nan::Persistent<v8::Function> proxyFactory;
+static Nan::Persistent<v8::Function> proxyFunction;
+#pragma managed(push, on)
+
 v8::Local<v8::Function> ClrFunc::Initialize(System::Func<System::Object^,Task<System::Object^>^>^ func)
 {
     DBG("ClrFunc::Initialize Func<object,Task<object>> wrapper");
-
-    static Nan::Persistent<v8::Function> proxyFactory;
-    static Nan::Persistent<v8::Function> proxyFunction;
 
     Nan::EscapableHandleScope scope;
 
