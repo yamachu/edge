@@ -72,10 +72,8 @@ void CoreClrNodejsFuncInvokeContext::InvokeCallback(void* data)
 	CoreClrNodejsFuncInvokeContext* context = (CoreClrNodejsFuncInvokeContext*) data;
 	v8::Local<v8::Value> v8Payload = CoreClrFunc::MarshalCLRToV8(context->Payload, context->PayloadType);
 
-	#pragma managed(push, off)
 	static Nan::Persistent<v8::Function> callbackFactory;
 	static Nan::Persistent<v8::Function> callbackFunction;
-	#pragma managed(push, pop)
 
 	Nan::HandleScope scope;
 
