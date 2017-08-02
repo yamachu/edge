@@ -1,16 +1,18 @@
 var http = require('http');
 
+var version = (process.argv[3].includes('electron') ? '7.10.0' : process.argv[3]);
+
 var urls;
 if (process.argv[2] === 'x86') {
 	urls = [
-		'http://nodejs.org/dist/v' + process.argv[3] + '/node.exe',
-		'http://nodejs.org/dist/v' + process.argv[3] + '/win-x86/node.exe'
+		'http://nodejs.org/dist/v' + version + '/node.exe',
+		'http://nodejs.org/dist/v' + version + '/win-x86/node.exe'
 	];
 }
 else {
 	urls = [
-		'http://nodejs.org/dist/v' + process.argv[3] + '/x64/node.exe',
-		'http://nodejs.org/dist/v' + process.argv[3] + '/win-x64/node.exe'
+		'http://nodejs.org/dist/v' + version + '/x64/node.exe',
+		'http://nodejs.org/dist/v' + version + '/win-x64/node.exe'
 	];
 }
 

@@ -46,7 +46,10 @@ if %ERRORLEVEL% neq 0 (
 
 :gyp
 
-echo Building edge.node %FLAVOR% for node.js %2 v%3
+set VERSION_ORG=%3
+set ELECTRON_VERSION=%VERSION_ORG:electron-=%
+
+echo Building edge.node %FLAVOR% for node.js %2 v%VERSION_ORG%
 set NODEEXE=%DESTDIR%\node.exe
 set GYP=%APPDATA%\npm\node_modules\node-gyp\bin\node-gyp.js
 if not exist "%GYP%" (
@@ -54,7 +57,11 @@ if not exist "%GYP%" (
     exit /b -1
 )
 
-"%NODEEXE%" "%GYP%" configure build --msvs_version=2015 -%FLAVOR%
+if "%VERSION_ORG:electron-=%" == "%3" (
+    "%NODEEXE%" "%GYP%" configure build --msvs_version=2015 -%FLAVOR%
+) else (
+    "%NODEEXE%" "%GYP%" configure build --target-_arch=%1 --target=%ELECTRON_VERSION% --dist-url=https://atom.io/download/atom-shell --msvs_version=2015 -%FLAVOR%
+)
 if %ERRORLEVEL% neq 0 (
     echo Error building edge.node %FLAVOR% for node.js %2 v%3
     exit /b -1
