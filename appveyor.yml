@@ -1,0 +1,38 @@
+environment:
+  access_token:
+    secure: "phbIUL1pW4otTYZTo79JgBo7dznsGhCGU3Jbs8jLhM482kySCkP2oXWofXKMPqtc"
+  matrix:
+    - nodejs_version: "7"
+
+install:
+  - ps: Update-NodeJsInstallation (Get-NodeJsLatestBuild $env:nodejs_version)
+  - node --version
+
+  - npm install -g npm
+  - npm --version
+
+  - npm install -g node-gyp
+  - npm install -g nan
+
+init:
+  - git config --global core.autocrlf false
+
+branches:
+  only:
+    - feature/support_new_version
+
+build_script:
+  - cmd: cd tools
+  - cmd: buildall.bat
+
+on_success:
+  - git config --global credential.helper store
+  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+  - git config --global user.email "yamachu.dev@gmail.com"
+  - git config --global user.name "AppVeyor Deploy"
+  - git stash
+  - git checkout release_version
+  - git stash apply
+  - git add lib/native/win32
+  - git commit -m "Auto build %APPVEYOR_REPO_COMMIT%"
+  - git push origin release_version
