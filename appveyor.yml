@@ -39,4 +39,4 @@ on_success:
   - git stash apply
   - git add lib/native/win32
   - git commit -m "Auto build %APPVEYOR_REPO_COMMIT%"
-  - git push origin release_version
+  - git push origin release_version --force
