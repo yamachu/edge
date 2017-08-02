@@ -11,8 +11,11 @@ install:
   - npm install -g npm
   - npm --version
 
+  - npm root -g
+  - echo %NODE_PATH%
+
   - npm install -g node-gyp
-  - npm install -g nan
+  - npm i nan
 
 init:
   - git config --global core.autocrlf false
@@ -24,6 +27,7 @@ branches:
 build_script:
   - cmd: cd tools
   - cmd: buildall.bat
+  - cmd: cd ..
 
 on_success:
   - git config --global credential.helper store
