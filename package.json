@@ -1,11 +1,11 @@
 {
-  "name": "edge",
+  "name": "@yamachu/edge",
   "author": {
     "name": "Tomasz Janczuk <tomasz@janczuk.org>",
     "url": "http://tomasz.janczuk.org",
     "twitter": "tjanczuk"
   },
-  "version": "7.10.1",
+  "version": "8.2.1",
   "description": "Edge.js: run .NET and Node.js in-process on Windows, Mac OS, and Linux",
   "tags": [
     "owin",
@@ -29,20 +29,20 @@
     }
   ],
   "dependencies": {
-    "edge-cs": "git+https://github.com/yamachu/edge-cs#feature/support_new_version",
+    "edge-cs": "@yamachu/edge-cs",
     "nan": "^2.0.9"
   },
   "devDependencies": {
     "mocha": "2.5.3",
     "jshint": "1.1.0"
   },
-  "homepage": "https://github.com/tjanczuk/edge",
+  "homepage": "https://github.com/yamachu/edge",
   "repository": {
     "type": "git",
-    "url": "git@github.com:tjanczuk/edge.git"
+    "url": "git@github.com:yamachu/edge.git"
   },
   "bugs": {
-    "url": "http://github.com/tjanczuk/edge/issues"
+    "url": "https://github.com/yamachu/edge/issues"
   },
   "scripts": {
     "install": "node tools/install.js",
