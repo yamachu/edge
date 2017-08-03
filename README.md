@@ -1,5 +1,8 @@
-Edge.js: .NET and Node.js in-process [![Build Status](https://travis-ci.org/tjanczuk/edge.svg)](https://travis-ci.org/tjanczuk/edge)
+Edge.js: .NET and Node.js in-process [![Build status](https://ci.appveyor.com/api/projects/status/uctlouym82skf6sb?svg=true)](https://ci.appveyor.com/project/yamachu/edge)
 ====
+
+> This repository is fork of https://github.com/tjanczuk/edge to make available bulid with latest .NETCore SDK.  
+> Currently support Node 4.x, 5.x, 6.x, 7.x, 8.x, and Electron 1.3.x, 1.4.x, 1.6.x .
 
 **NEW** Edge.js is now on Slack at https://edgejs.slack.com. Join [here](https://webtask.it.auth0.com/api/run/tjanczuk/edgejs-slack-invite). 
  
@@ -153,7 +156,7 @@ If you are writing a Node.js application, this section explains how you include 
 
 ### What you need
 
-Edge.js runs on Windows, Linux, and OSX and requires Node.js 7.x, 6.x, 5.x, 4.x, as well as .NET Framework 4.5 (Windows), Mono 4.2.4 (OSX, Linux), or .NET Core 1.0.0 Preview 2 (Windows, OSX, Linux). 
+Edge.js runs on Windows, Linux, and OSX and requires Node.js 7.x, 6.x, 5.x, 4.x, as well as .NET Framework 4.5 (Windows), Mono 4.2.4 (OSX, Linux), or .NET Core 1.0.4 (Windows, OSX, Linux). 
 
 **NOTE** there is a known issue with Mono after 4.2.4 that will be addressed in Mono 4.6.
 
