@@ -4,6 +4,13 @@ Edge.js: .NET and Node.js in-process [![Build status](https://ci.appveyor.com/ap
 > This repository is fork of https://github.com/tjanczuk/edge to make available bulid with latest .NETCore SDK.  
 > Currently support Node 4.x, 5.x, 6.x, 7.x, 8.x, and Electron 1.3.x, 1.4.x, 1.6.x .
 
+When use this library, replace `require('edge')` with `require('@yamachu/edge')`:
+
+```diff
+-var edge = require('edge');
++var edge = require('@yamachu/edge');
+```
+
 **NEW** Edge.js is now on Slack at https://edgejs.slack.com. Join [here](https://webtask.it.auth0.com/api/run/tjanczuk/edgejs-slack-invite). 
  
 An edge connects two nodes. This edge connects Node.js and .NET. V8 and CLR/.NET Core/Mono - in process. On Windows, MacOS, and Linux. 
