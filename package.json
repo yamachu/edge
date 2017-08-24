@@ -20,7 +20,7 @@
   ],
   "main": "./lib/edge.js",
   "engines": {
-    "node": ">= 0.8"
+    "node": ">= 6"
   },
   "licenses": [
     {
