@@ -21,6 +21,7 @@
 #include <sys/utsname.h>
 #include <fstream>
 #include <sstream>
+#include <locale.h>
 #else
 #include <direct.h>
 #include <shlwapi.h>
@@ -207,6 +208,7 @@ HRESULT CoreClrEmbedding::Initialize(BOOL debugMode)
 	char tempEdgeNodePath[PATH_MAX];
 
 #ifdef EDGE_PLATFORM_WINDOWS
+	setlocale(LC_ALL, "");
     HMODULE moduleHandle = NULL;
 
     GetModuleHandleEx(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS | GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT, (LPCSTR) &CoreClrEmbedding::Initialize, &moduleHandle);
@@ -582,6 +584,7 @@ HRESULT CoreClrEmbedding::Initialize(BOOL debugMode)
 
 	for (deps_entry_t entry : resolver.m_deps->get_entries(deps_entry_t::asset_types::runtime))
 	{
+		trace::info(_X("CoreClrEmbedding::Initialize - Deps entries: %s"), entry.library_name.c_str());
 		if (entry.library_name == _X("Edge.js") || entry.library_name == _X("edge.js"))
 		{
 			foundEdgeJs = true;
